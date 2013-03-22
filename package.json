@@ -1,0 +1,23 @@
+{
+  "name": "tweetyourbracket.com",
+  "subdomain": "tweetyourbracket-twitter",
+  "author": {
+    "name": "Luke Karrys",
+    "email": "luke@lukekarrys.com"
+  },
+  "scripts": {
+    "start": "node app.js"
+  },
+  "version": "0.0.0",
+  "engines": {
+    "node": "0.8.x"
+  },
+  "dependencies": {
+    "async": "~0.2.6",
+    "underscore": "~1.4.4",
+    "twit": "~1.1.5",
+    "express": "~3.1.0",
+    "bracket-validator": "0.1.x",
+    "mongoose": "~3.6.0",
+  }
+}
