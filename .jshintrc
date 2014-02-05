@@ -8,7 +8,7 @@
     "white": true,
     "undef": true,
     "browser": false,
-    "node": false,
+    "node": true,
     "trailing": true,
     "indent": 4,
     "eqeqeq": true,

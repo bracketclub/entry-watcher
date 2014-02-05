@@ -10,6 +10,13 @@
   "bugs": {
     "url": "https://github.com/tweetyourbracket/tweet/issues"
   },
+  "dependencies": {
+    "bracket-finder": "~1.0.1",
+    "bucker": "~1.0.5",
+    "db-schema": "git+https://github.com/tweetyourbracket/db-schema.git",
+    "moment": "~2.5.1",
+    "twit": "~1.1.12"
+  },
   "homepage": "http://github.com/tweetyourbracket/tweet",
   "keywords": [
     "ncaa",
@@ -17,10 +24,13 @@
     "tweetyourbracket"
   ],
   "license": "MIT",
-  "main": "app.js",
+  "main": "index.js",
   "private": true,
   "repository": {
     "type": "git",
     "url": "http://github.com/tweetyourbracket/tweet.git"
+  },
+  "scripts": {
+    "start": "node index.js"
   }
 }
