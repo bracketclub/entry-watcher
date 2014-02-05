@@ -58,11 +58,11 @@ if (now.isBefore(bracketsClose)) {
     });
 
     stream.on('connect', function (request) {
-        logger.error('[CONNECT]');
+        logger.debug('[CONNECT]');
     });
 
     stream.on('reconnect', function (request, response, connectInterval) {
-        logger.error('[RECONNECT]');
+        logger.warn('[RECONNECT]');
     });
 
     setTimeout(function () {
