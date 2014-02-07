@@ -1,8 +1,15 @@
 var HASHTAGS = ['tybrkt'],
     DOMAIN = 'tweetyourbracket.com',
+    path = require('path'),
     logger = require('bucker').createLogger({
         console: {
             color: true
+        },
+        app: {
+            filename: path.resolve(__dirname, 'logs', 'app.log'),
+            format: ':level :time :data',
+            timestamp: 'HH:mm:ss',
+            accessFormat: ':time :level :method :status :url'
         }
     }),
     year = '2013',
