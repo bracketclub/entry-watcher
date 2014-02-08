@@ -1,7 +1,7 @@
 {
   "name": "tweet-watcher",
   "description": "Tweet watcher for tweetyourbracket.com",
-  "version": "0.0.8",
+  "version": "0.0.8-1",
   "author": {
     "name": "Luke Karrys",
     "email": "luke@lukekarrys.com",
