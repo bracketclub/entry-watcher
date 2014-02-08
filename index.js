@@ -6,7 +6,7 @@ var HASHTAGS = ['tybrkt'],
             color: true
         },
         app: {
-            filename: path.resolve(__dirname, 'logs', 'app.log'),
+            filename: '/var/log/tweet-watcher',
             format: ':level :time :data',
             timestamp: 'HH:mm:ss',
             accessFormat: ':time :level :method :status :url'
