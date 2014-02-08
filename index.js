@@ -19,7 +19,7 @@ var HASHTAGS = ['tybrkt'],
     finder = new BracketFinder({domain: DOMAIN, hashtags: HASHTAGS, year: year}),
     Database = new require('db-schema'),
     moment = require('moment'),
-    bracketsClose = moment(finder.locks),
+    bracketsClose = moment().add('days', 5) || moment(finder.locks),
     now = moment();
 
 if (now.isBefore(bracketsClose)) {
