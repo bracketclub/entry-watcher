@@ -6,7 +6,7 @@ var HASHTAGS = ['tybrkt'],
             color: true
         },
         app: {
-            filename: '/var/log/tweet-watcher',
+            filename: path.resolve(__dirname, 'logs', 'app.log'),
             format: ':level :time :data',
             timestamp: 'HH:mm:ss',
             accessFormat: ':time :level :method :status :url'
@@ -19,7 +19,7 @@ var HASHTAGS = ['tybrkt'],
     finder = new BracketFinder({domain: DOMAIN, hashtags: HASHTAGS, year: year}),
     Database = new require('db-schema'),
     moment = require('moment'),
-    bracketsClose = moment().add('days', 5) || moment(finder.locks),
+    bracketsClose = moment(finder.locks),
     now = moment();
 
 if (now.isBefore(bracketsClose)) {
@@ -51,7 +51,7 @@ if (now.isBefore(bracketsClose)) {
                         profile_pic: data.user.profile_image_url
                     };
 
-                    db.upsertBracket(record, function (err, doc) {
+                    db.upsertBracket(record, function (err) {
                         if (err) return logger.error('[SAVE ERROR]', tweetLink);
                         logger.debug('[SAVE SUCESS]', tweetLink);
                     });
@@ -64,11 +64,11 @@ if (now.isBefore(bracketsClose)) {
         logger.error('[DISCONNECT]', message);
     });
 
-    stream.on('connect', function (request) {
+    stream.on('connect', function () {
         logger.debug('[CONNECT]');
     });
 
-    stream.on('reconnect', function (request, response, connectInterval) {
+    stream.on('reconnect', function () {
         logger.warn('[RECONNECT]');
     });
 
