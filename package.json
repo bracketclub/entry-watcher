@@ -11,7 +11,8 @@
     "url": "https://github.com/tweetyourbracket/tweet/issues"
   },
   "dependencies": {
-    "bracket-finder": "~1.0.1",
+    "bracket-data": "~2.0.3",
+    "bracket-finder": "~2.0.0",
     "bucker": "~1.0.5",
     "db-schema": "git+https://github.com/tweetyourbracket/db-schema.git",
     "moment": "~2.5.1",

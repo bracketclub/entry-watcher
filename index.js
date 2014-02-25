@@ -13,13 +13,16 @@ var HASHTAGS = ['tybrkt'],
         }
     }),
     year = '2013',
+    sport = 'ncaa-mens-basketball',
     config = require('./config.js'),
     Twit = require('twit'),
     BracketFinder = require('bracket-finder'),
-    finder = new BracketFinder({domain: DOMAIN, hashtags: HASHTAGS, year: year}),
+    finder = new BracketFinder({domain: DOMAIN, tags: HASHTAGS, year: year, sport: sport}),
     Database = new require('db-schema'),
     moment = require('moment'),
-    bracketsClose = moment(finder.locks),
+    BracketData = require('bracket-data'),
+    bd = new BracketData({year: year, sport: sport, props: ['locks']}),
+    bracketsClose = moment(bd.locks),
     now = moment();
 
 if (now.isBefore(bracketsClose)) {
@@ -33,7 +36,7 @@ if (now.isBefore(bracketsClose)) {
             var tweetLink = 'twitter.com/' + data.user.screen_name + '/status/' + data.id_str;
 
             logger.debug('[TWEET]', tweetLink);
-            finder.find(data, function (err, res) {
+            finder.tweet(data, function (err, res) {
                 if (err) return logger.warn('[TWEET]', err.message, tweetLink);
 
                 var validBracket = res,
