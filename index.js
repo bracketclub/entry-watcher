@@ -1,66 +1,42 @@
-var HASHTAGS = ['tybrkt'],
-    DOMAIN = 'tweetyourbracket.com',
-    path = require('path'),
-    logger = require('bucker').createLogger({
-        console: {
-            color: true
-        },
-        app: {
-            filename: path.resolve(__dirname, 'logs', 'app.log'),
-            format: ':level :time :data',
-            timestamp: 'HH:mm:ss',
-            accessFormat: ':time :level :method :status :url'
-        }
-    }),
-    year = '2013',
-    sport = 'ncaa-mens-basketball',
-    config = require('./config.js'),
-    Twit = require('twit'),
-    BracketFinder = require('bracket-finder'),
-    finder = new BracketFinder({domain: DOMAIN, tags: HASHTAGS, year: year, sport: sport}),
-    Database = new require('db-schema'),
-    moment = require('moment'),
-    BracketData = require('bracket-data'),
-    bd = new BracketData({year: year, sport: sport, props: ['locks']}),
-    bracketsClose = moment(bd.locks),
-    now = moment();
+var path = require('path'),
+logger = require('bucker').createLogger({
+    console: {
+        color: true
+    },
+    app: {
+        filename: path.resolve(__dirname, 'logs', 'app.log'),
+        format: ':level :time :data',
+        timestamp: 'HH:mm:ss',
+        accessFormat: ':time :level :method :status :url'
+    }
+});
+var year = '2013';
+var sport = 'ncaa-mens-basketball';
+var config = require('./config.js');
+var Twit = require('twit');
+var BracketFinder = require('bracket-finder');
+var finder = new BracketFinder({domain: config.domain, tags: config.tags, year: year, sport: sport});
+var Locks = require('./lib/locks');
+var locks = new Locks({year: year, sport: sport});
+var calendar = locks.moment('calendar');
+var fromNow = locks.moment('fromNow');
+var lockDisplay = calendar + ' ' + '/' + ' ' + fromNow;
 
-if (now.isBefore(bracketsClose)) {
-    logger.debug('[START STREAM]', 'track:' + HASHTAGS.toString(), 'until', bracketsClose.calendar(), '/', bracketsClose.fromNow());
+if (locks.isOpen()) {
+    logger.debug('[START STREAM]', 'track:' + config.tags.toString(), 'until', lockDisplay);
 
-    var db = new Database(config.db);
+    var Entry = require('./lib/entry');
     var T = new Twit(config.twitter);
-    var stream = T.stream('statuses/filter', {track: HASHTAGS});
+    var stream = T.stream('statuses/filter', {track: config.tags});
+
     stream.on('tweet', function (data) {
-        if (!data.hasOwnProperty('retweeted_status')) {
-            var tweetLink = 'twitter.com/' + data.user.screen_name + '/status/' + data.id_str;
-
-            logger.debug('[TWEET]', tweetLink);
-            finder.tweet(data, function (err, res) {
-                if (err) return logger.warn('[TWEET]', err.message, tweetLink);
-
-                var validBracket = res,
-                    bracketTime = moment(data.created_at),
-                    record = {};
-
-                if (validBracket && bracketTime.isBefore(bracketsClose)) {
-                    record = {
-                        created: data.created_at,
-                        bracket: validBracket.toUpperCase(),
-                        user_id: data.user.id_str,
-                        tweet_id: data.id_str,
-                        username: data.user.screen_name,
-                        name: data.user.name,
-                        profile_pic: data.user.profile_image_url
-                    };
-
-                    db.upsertBracket(record, function (err) {
-                        if (err) return logger.error('[SAVE ERROR]', tweetLink);
-                        logger.debug('[SAVE SUCESS]', tweetLink);
-                    });
-                }
-            });
-        }
+        new Entry({
+            finder: finder,
+            logger: logger,
+            tweet: data,
+            sport: sport,
+            year: year
+        }).save();
     });
 
     stream.on('disconnect', function (message) {
@@ -76,9 +52,9 @@ if (now.isBefore(bracketsClose)) {
     });
 
     setTimeout(function () {
-        logger.debug('[STOP STREAM]', 'at', bracketsClose.calendar(), '/', bracketsClose.fromNow());
+        logger.debug('[STOP STREAM]', 'at', lockDisplay);
         stream.stop();
-    }, bracketsClose.diff(now));
+    }, locks.closesIn);
 } else {
-    return logger.info('[NO STREAM]', 'at', bracketsClose.calendar(), '/', bracketsClose.fromNow());
+    return logger.info('[NO STREAM]', 'at', lockDisplay);
 }

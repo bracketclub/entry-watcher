@@ -1,7 +1,7 @@
 {
   "name": "tweet-watcher",
   "description": "Tweet watcher for tweetyourbracket.com",
-  "version": "0.0.8-1",
+  "version": "2.0.0",
   "author": {
     "name": "Luke Karrys",
     "email": "luke@lukekarrys.com",
@@ -16,10 +16,12 @@
     "bucker": "~1.0.5",
     "db-schema": "git+https://github.com/tweetyourbracket/db-schema.git",
     "moment": "~2.5.1",
-    "twit": "~1.1.12"
+    "twit": "~1.1.12",
+    "async": "~0.2.10"
   },
   "devDependencies": {
-    "precommit-hook": "~0.3.10"
+    "precommit-hook": "~0.3.10",
+    "mocha": "~1.17.1"
   },
   "homepage": "http://github.com/tweetyourbracket/tweet",
   "keywords": [
@@ -35,6 +37,7 @@
     "url": "http://github.com/tweetyourbracket/tweet.git"
   },
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "test": "./node_modules/.bin/mocha -c -u bdd -R spec --timeout 5000 test/test.js"
   }
 }
