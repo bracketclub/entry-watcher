@@ -1,8 +1,11 @@
 var assert = require('assert');
 var year = '2013';
 var sport = 'ncaa-mens-basketball';
-var config = require('../config.js');
 var BracketFinder = require('bracket-finder');
+var config = {
+    domain: "tweetyourbracket.com",
+    tags: ["tybrkt"]
+};
 var finder = new BracketFinder({domain: config.domain, tags: config.tags, year: year, sport: sport});
 var Entry = require('../lib/entry');
 var logger = require('bucker').createNullLogger();
