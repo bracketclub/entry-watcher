@@ -8,6 +8,7 @@ var config = {
 };
 var finder = new BracketFinder({domain: config.domain, tags: config.tags, year: year, sport: sport});
 var Entry = require('../lib/entry');
+var Locks = require('../lib/locks');
 var logger = require('bucker').createNullLogger();
 
 
@@ -16,9 +17,8 @@ describe('Tweet watcher', function () {
         new Entry({
             logger: logger,
             finder: finder,
-            sport: sport,
-            year: year,
-            tweet: require('./data/tag-domain-bracket')
+            tweet: require('./data/tag-domain-bracket'),
+            locks: new Locks({sport: sport, year: year})
         }).test(function (err, result) {
             assert.equal(err, null);
             assert.equal(result, 'MW191241137211237131W1854631021532522S18541131021532533E195463721432121FFMWEMW');
@@ -30,7 +30,7 @@ describe('Tweet watcher', function () {
         new Entry({
             logger: logger,
             finder: finder,
-            locks: 'Thur Mar 21 16:15:00 +000 2012',
+            locks: new Locks({locks: 'Thur Mar 21 16:15:00 +000 2012'}),
             tweet: require('./data/tag-domain-bracket')
         }).test(function (err) {
             assert.equal(true, err instanceof Error);
@@ -43,7 +43,7 @@ describe('Tweet watcher', function () {
         new Entry({
             logger: logger,
             finder: finder,
-            locks: 'Thur Mar 21 16:15:00 +000 2014',
+            locks: new Locks({forceUnlock: true}),
             tweet: require('./data/tag-domain-nobracket')
         }).test(function (err) {
             assert.equal(true, err instanceof Error);
@@ -56,7 +56,7 @@ describe('Tweet watcher', function () {
         new Entry({
             logger: logger,
             finder: finder,
-            locks: 'Thur Mar 21 16:15:00 +000 2014',
+            locks: new Locks({forceUnlock: true}),
             tweet: require('./data/tag-shortdomain-bracket')
         }).test(function (err, result) {
             assert.equal(err, null);
@@ -70,7 +70,7 @@ describe('Tweet watcher', function () {
         new Entry({
             logger: logger,
             finder: finder,
-            locks: 'Thur Mar 21 16:15:00 +000 2014',
+            locks: new Locks({forceUnlock: true}),
             tweet: require('./data/notag-domain-nobracket')
         }).test(function (err) {
             assert.equal(true, err instanceof Error);
@@ -84,7 +84,7 @@ describe('Tweet watcher', function () {
         new Entry({
             logger: logger,
             finder: finder,
-            locks: 'Thur Mar 21 16:15:00 +000 2014',
+            locks: new Locks({forceUnlock: true}),
             tweet: require('./data/notag-nodomain-nobracket')
         }).test(function (err) {
             assert.equal(true, err instanceof Error);
@@ -97,9 +97,7 @@ describe('Tweet watcher', function () {
         assert.throws(function () {
             new Entry({
                 logger: logger,
-                finder: finder,
-                sport: sport,
-                year: year
+                finder: finder
             });
         });
     });

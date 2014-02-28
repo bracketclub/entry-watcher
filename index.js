@@ -10,20 +10,20 @@ logger = require('bucker').createLogger({
         accessFormat: ':time :level :method :status :url'
     }
 });
-var year = '2013';
-var sport = 'ncaa-mens-basketball';
 var config = require('./config.js');
+var year = config.year;
+var sport = config.sport;
 var Twit = require('twit');
 var BracketFinder = require('bracket-finder');
 var finder = new BracketFinder({domain: config.domain, tags: config.tags, year: year, sport: sport});
 var Locks = require('./lib/locks');
-var locks = new Locks({year: year, sport: sport});
+var locks = new Locks({year: year, sport: sport, forceUnlock: process.argv.join(' ').indexOf('--unlock') > -1});
 var calendar = locks.moment('calendar');
 var fromNow = locks.moment('fromNow');
 var lockDisplay = calendar + ' ' + '/' + ' ' + fromNow;
 
 if (locks.isOpen()) {
-    logger.debug('[START STREAM]', 'track:' + config.tags.toString(), 'until', lockDisplay);
+    logger.debug('[START STREAM]', 'track:' + config.tags.join(), 'until', lockDisplay);
 
     var Entry = require('./lib/entry');
     var T = new Twit(config.twitter);
@@ -34,8 +34,7 @@ if (locks.isOpen()) {
             finder: finder,
             logger: logger,
             tweet: data,
-            sport: sport,
-            year: year
+            locks: locks
         }).save();
     });
 
@@ -51,10 +50,18 @@ if (locks.isOpen()) {
         logger.warn('[RECONNECT]');
     });
 
+    stream.on('limit', function (msg) {
+        logger.warn('[LIMIT]', msg);
+    });
+
+    stream.on('warning', function (msg) {
+        logger.warn('[WARNING]', msg);
+    });
+
     setTimeout(function () {
-        logger.debug('[STOP STREAM]', 'at', lockDisplay);
+        logger.debug('[STOP STREAM]');
         stream.stop();
-    }, locks.closesIn);
+    }, locks.closesIn());
 } else {
     return logger.info('[NO STREAM]', 'at', lockDisplay);
 }

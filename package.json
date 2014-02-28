@@ -38,6 +38,7 @@
   },
   "scripts": {
     "start": "node index.js",
+    "unlock": "node index --unlock",
     "test": "./node_modules/.bin/mocha -c -u bdd -R spec --timeout 5000 test/test.js"
   }
 }
