@@ -11,17 +11,18 @@
     "url": "https://github.com/tweetyourbracket/tweet/issues"
   },
   "dependencies": {
+    "async": "~0.2.10",
     "bracket-data": "~2.0.3",
     "bracket-finder": "~2.0.0",
     "bucker": "~1.0.5",
     "db-schema": "git+https://github.com/tweetyourbracket/db-schema.git",
+    "lodash": "~2.4.1",
     "moment": "~2.5.1",
-    "twit": "~1.1.12",
-    "async": "~0.2.10"
+    "twit": "~1.1.12"
   },
   "devDependencies": {
-    "precommit-hook": "~0.3.10",
-    "mocha": "~1.17.1"
+    "mocha": "~1.17.1",
+    "precommit-hook": "~0.3.10"
   },
   "homepage": "http://github.com/tweetyourbracket/tweet",
   "keywords": [

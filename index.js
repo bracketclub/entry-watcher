@@ -1,5 +1,5 @@
-var path = require('path'),
-logger = require('bucker').createLogger({
+var path = require('path');
+var logger = require('bucker').createLogger({
     console: {
         color: true
     },
