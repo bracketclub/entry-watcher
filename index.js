@@ -34,7 +34,8 @@ if (locks.isOpen()) {
             finder: finder,
             logger: logger,
             tweet: data,
-            locks: locks
+            locks: locks,
+            year: year
         }).save();
     });
 
