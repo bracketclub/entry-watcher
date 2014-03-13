@@ -1,6 +1,6 @@
 var data = {
-    '2012': require('../../tweetyourbracket.com/clientapp/data/2012'),
-    '2013': require('../../tweetyourbracket.com/clientapp/data/2013')
+    '2012': require('../../bracket-data-live/data/2012'),
+    '2013': require('../../bracket-data-live/data/2013')
 };
 var FetchTweets = require('../lib/fetch');
 

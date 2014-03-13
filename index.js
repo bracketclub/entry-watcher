@@ -35,7 +35,8 @@ if (locks.isOpen()) {
             logger: logger,
             tweet: data,
             locks: locks,
-            year: year
+            year: year,
+            sport: sport
         }).save();
     });
 
