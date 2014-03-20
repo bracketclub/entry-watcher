@@ -16,7 +16,6 @@
     "bracket-finder": "~2.0.0",
     "bucker": "~1.0.5",
     "commander": "^2.1.0",
-    "db-schema": "git+https://github.com/tweetyourbracket/db-schema.git",
     "lodash": "~2.4.1",
     "moment": "~2.5.1",
     "twit": "~1.1.12"

@@ -7,14 +7,14 @@ Tweet watcher for tweetyourbracket.com
 
 ## Usage
 
-1. Create `config.js` file in root with `db` connection string to a mongodb instance and a `twitter` object with `consumer_key`, `consumer_secret`, `access_token`, `access_token_secret`
+1. Create `config.js` file in root with a `twitter` object with `consumer_key`, `consumer_secret`, `access_token`, `access_token_secret`
 2. You'll also want to set your `domain` and `tags` in the config.
 3. `npm install`
 4. `npm start`
 
 ## What is it doing?
 
-It is setting up a Twitter listener using [`twit`](https://github.com/ttezel/twit) and when a tweet is found, it is checking whether it contains a valid bracket. If it does, it will add it to the db.
+It is setting up a Twitter listener using [`twit`](https://github.com/ttezel/twit) and when a tweet is found, it is checking whether it contains a valid bracket. If it does, it will add it the [`bracket-data-live`](http://github.com/tweetyourbracket/bracket-data-live) repo located as a sibling dir.
 
 ## Is it on npm?
 
