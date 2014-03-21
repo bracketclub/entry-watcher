@@ -10,7 +10,7 @@ var logger = require('bucker').createLogger({
         accessFormat: ':time :level :method :status :url'
     }
 });
-var config = require('./config.js');
+var config = require('figs');
 var year = config.year;
 var sport = config.sport;
 var Twit = require('twit');
