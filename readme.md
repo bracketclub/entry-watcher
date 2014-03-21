@@ -7,8 +7,8 @@ Tweet watcher for tweetyourbracket.com
 
 ## Usage
 
-1. Create `config.js` file in root with a `twitter` object with `consumer_key`, `consumer_secret`, `access_token`, `access_token_secret`
-2. You'll also want to set your `domain` and `tags` in the config.
+1. Create `config.js` file in root (or create the file anywhere that [`figs`](https://www.npmjs.org/package/figs) will support) with a `twitter` object with `consumer_key`, `consumer_secret`, `access_token`, `access_token_secret`
+2. You'll also want to set your `domain`, `tags`, `sport` and `year` in the config
 3. `npm install`
 4. `npm start`
 
