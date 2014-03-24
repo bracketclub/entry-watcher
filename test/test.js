@@ -18,7 +18,9 @@ describe('Tweet watcher', function () {
             logger: logger,
             finder: finder,
             tweet: require('./data/tag-domain-bracket'),
-            locks: new Locks({sport: sport, year: year})
+            locks: new Locks({sport: sport, year: year}),
+            sport: sport,
+            year: year
         }).test(function (err, result) {
             assert.equal(err, null);
             assert.equal(result, 'MW191241137211237131W1854631021532522S18541131021532533E195463721432121FFMWEMW');
@@ -31,7 +33,9 @@ describe('Tweet watcher', function () {
             logger: logger,
             finder: finder,
             locks: new Locks({locks: 'Thur Mar 21 16:15:00 +000 2012'}),
-            tweet: require('./data/tag-domain-bracket')
+            tweet: require('./data/tag-domain-bracket'),
+            sport: sport,
+            year: year
         }).test(function (err) {
             assert.equal(true, err instanceof Error);
             assert.equal(err.message, 'Entry is outside of the allotted time');
@@ -44,7 +48,9 @@ describe('Tweet watcher', function () {
             logger: logger,
             finder: finder,
             locks: new Locks({forceUnlock: true}),
-            tweet: require('./data/tag-domain-nobracket')
+            tweet: require('./data/tag-domain-nobracket'),
+            sport: sport,
+            year: year
         }).test(function (err) {
             assert.equal(true, err instanceof Error);
             assert.equal(err.message, 'Entry does not contain a bracket');
@@ -57,7 +63,9 @@ describe('Tweet watcher', function () {
             logger: logger,
             finder: finder,
             locks: new Locks({forceUnlock: true}),
-            tweet: require('./data/tag-shortdomain-bracket')
+            tweet: require('./data/tag-shortdomain-bracket'),
+            sport: sport,
+            year: year
         }).test(function (err, result) {
             assert.equal(err, null);
             assert.equal(result, 'MW18121311372112117177W168124631028123101233S181241131028411104114E1954614721462466FFWSS');
@@ -71,7 +79,9 @@ describe('Tweet watcher', function () {
             logger: logger,
             finder: finder,
             locks: new Locks({forceUnlock: true}),
-            tweet: require('./data/notag-domain-nobracket')
+            tweet: require('./data/notag-domain-nobracket'),
+            sport: sport,
+            year: year
         }).test(function (err) {
             assert.equal(true, err instanceof Error);
             assert.equal(err.message, 'Entry does not contain a bracket');
@@ -85,7 +95,9 @@ describe('Tweet watcher', function () {
             logger: logger,
             finder: finder,
             locks: new Locks({forceUnlock: true}),
-            tweet: require('./data/notag-nodomain-nobracket')
+            tweet: require('./data/notag-nodomain-nobracket'),
+            sport: sport,
+            year: year
         }).test(function (err) {
             assert.equal(true, err instanceof Error);
             assert.equal(err.message, 'Entry does not contain a bracket');
