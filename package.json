@@ -11,24 +11,25 @@
     "url": "https://github.com/tweetyourbracket/tweet/issues"
   },
   "dependencies": {
-    "async": "~0.2.10",
-    "bracket-data": "~2.0.3",
-    "bracket-finder": "~2.0.0",
-    "bucker": "~1.0.5",
-    "commander": "^2.1.0",
+    "async": "^0.9.0",
+    "bracket-data": "^2.1.1",
+    "bracket-finder": "^2.0.4",
+    "bucker": "^1.0.11",
+    "commander": "^2.6.0",
     "figs": "^0.1.4",
-    "lodash": "~2.4.1",
-    "moment": "~2.5.1",
-    "twit": "~1.1.12"
+    "lodash": "^3.3.1",
+    "moment": "^2.9.0",
+    "twit": "^1.1.20"
   },
   "devDependencies": {
-    "mocha": "~1.17.1",
-    "precommit-hook": "~0.3.10"
+    "jshint": "^2.6.0",
+    "mocha": "^2.1.0",
+    "precommit-hook": "^1.0.7"
   },
   "homepage": "http://github.com/tweetyourbracket/tweet",
   "keywords": [
-    "ncaa",
     "bracket",
+    "ncaa",
     "tweetyourbracket"
   ],
   "license": "MIT",
@@ -40,7 +41,7 @@
   },
   "scripts": {
     "start": "node index.js",
-    "unlock": "node index --unlock",
-    "test": "./node_modules/.bin/mocha -c -u bdd -R spec --timeout 5000 test/test.js"
+    "test": "./node_modules/.bin/mocha -c -u bdd -R spec --timeout 5000 test/test.js",
+    "unlock": "node index --unlock"
   }
 }

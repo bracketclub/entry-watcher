@@ -32,7 +32,7 @@ describe('Tweet watcher', function () {
         new Entry({
             logger: logger,
             finder: finder,
-            locks: new Locks({locks: 'Thur Mar 21 16:15:00 +000 2012'}),
+            locks: new Locks({locks: '2013-03-20T02:25:17.000Z'}),
             tweet: require('./data/tag-domain-bracket'),
             sport: sport,
             year: year
