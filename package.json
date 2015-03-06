@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "async": "^0.9.0",
-    "bracket-data": "^2.1.1",
+    "bracket-data": "^2.2.0",
     "bracket-finder": "^2.0.4",
     "bucker": "^1.0.11",
     "commander": "^2.6.0",
@@ -40,6 +40,6 @@
     "url": "http://github.com/tweetyourbracket/tweet.git"
   },
   "scripts": {
-    "test": "./node_modules/.bin/mocha -c -u bdd -R spec --timeout 5000 test/index.js"
+    "test": "./node_modules/.bin/mocha -c -u bdd -R spec --timeout 5000 test/*.js"
   }
 }

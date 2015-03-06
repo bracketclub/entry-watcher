@@ -13,8 +13,6 @@ describe('Locks', function () {
 
         assert.equal(locks.isOpen(), false);
         assert.equal(locks.moment('calendar'), '03/21/2014');
-        assert.equal(locks.isDateValid('2015-01-01T00:00:00.000Z'), false);
-        assert.equal(locks.isDateValid('2013-01-01T00:00:00.000Z'), true);
 
         done();
     });
@@ -25,8 +23,6 @@ describe('Locks', function () {
 
         assert.equal(locks.isOpen(), true);
         assert.ok(locks.closesIn() > ONE_DAY - 10000);
-        assert.equal(locks.isDateValid(moment().utc().format()), true);
-        assert.equal(locks.isDateValid(moment().add(ONE_DAY * 2, 'ms').utc().format()), false);
 
         done();
     });

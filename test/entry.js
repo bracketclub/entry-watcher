@@ -9,7 +9,7 @@ var entryConfig = function (opts) {
     return _.extend(opts || {}, config, {year: year, sport: sport});
 };
 
-var future = require('moment')().add(10, 'days');
+var future = require('moment')().add(10, 'days').utc().format();
 var Entry = require('../lib/entry');
 var Locks = require('../lib/locks');
 var locks = function (obj) {
