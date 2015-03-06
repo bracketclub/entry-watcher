@@ -1,16 +1,33 @@
-tweet-watcher
+entry-watcher
 ==============
 
-[![Build Status](https://travis-ci.org/tweetyourbracket/tweet-watcher.png?branch=master)](https://travis-ci.org/tweetyourbracket/tweet-watcher)
+[![Build Status](https://travis-ci.org/tweetyourbracket/entry-watcher.png?branch=master)](https://travis-ci.org/tweetyourbracket/entry-watcher)
 
-Tweet watcher for tweetyourbracket.com
+Entry watcher for tweetyourbracket.com
 
 ## Usage
 
-1. Create `config.js` file in root (or create the file anywhere that [`figs`](https://www.npmjs.org/package/figs) will support) with a `twitter` object with `consumer_key`, `consumer_secret`, `access_token`, `access_token_secret`
-2. You'll also want to set your `domain`, `tags`, `sport` and `year` in the config
-3. `npm install`
-4. `npm start`
+```js
+require('entry-watcher')({
+    logfile: '/path/to/logs/app.log',
+    sport: 'ncaa-mens-basketball',
+    year: '2015',
+    domain: 'tweetyourbracket.com',
+    tags: ['tybrkt'],
+    type: 'tweet',
+    auth: {
+        // Passed to twitter streaming listener
+        // Could be extended in the future based on `options.type`
+        'consumer_key': '',
+        'consumer_secret': '',
+        'access_token': '',
+        'access_token_secre': ''
+    }
+}, function (err, entry) {
+    // Entry is the full entry passsed back
+    // plus the `bracket` value
+});
+```
 
 ## What is it doing?
 

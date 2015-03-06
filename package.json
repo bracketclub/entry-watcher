@@ -1,6 +1,6 @@
 {
-  "name": "tweet-watcher",
-  "description": "Tweet watcher for tweetyourbracket.com",
+  "name": "entry-watcher",
+  "description": "Entry watcher for tweetyourbracket.com",
   "version": "2.0.1",
   "author": {
     "name": "Luke Karrys",
@@ -40,8 +40,6 @@
     "url": "http://github.com/tweetyourbracket/tweet.git"
   },
   "scripts": {
-    "start": "node index.js",
-    "test": "./node_modules/.bin/mocha -c -u bdd -R spec --timeout 5000 test/test.js",
-    "unlock": "node index --unlock"
+    "test": "./node_modules/.bin/mocha -c -u bdd -R spec --timeout 5000 test/index.js"
   }
 }
