@@ -4,17 +4,19 @@ var _ = require('lodash');
 var watchers = require('./lib/watchers');
 
 
-module.exports = function (options, cb) {
+var EntryWatchcer = function (options) {
     options || (options = {});
 
-    _.defaults(options, {
+    this.options = _.defaults(options, {
         logfile: path.resolve(__dirname, 'logs', 'app.log'),
         sport: 'ncaa-mens-basketball',
         year: new Date().getFullYear(),
         domain: 'tweetyourbracket.com',
         tags: ['tybrkt'],
         type: null,
-        auth: {}
+        auth: {},
+        onSave: function () {},
+        onError: function () {}
     });
 
     if (!options.sport || !options.year) {
@@ -25,7 +27,7 @@ module.exports = function (options, cb) {
         throw new Error(options.type + ' is not a valid entry type');
     }
 
-    var logger = bucker.createLogger({
+    this.logger = bucker.createLogger({
         console: {
             color: true
         },
@@ -36,8 +38,13 @@ module.exports = function (options, cb) {
             accessFormat: ':time :level :method :status :url'
         }
     });
-
-    watchers[options.type](_.extend({
-        logger: logger
-    }, options), cb);
 };
+
+
+EntryWatchcer.prototype.start = function () {
+    watchers[this.options.type](_.extend({
+        logger: this.logger
+    }, this.options));
+};
+
+module.exports = EntryWatchcer;

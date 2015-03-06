@@ -8,7 +8,8 @@ Entry watcher for tweetyourbracket.com
 ## Usage
 
 ```js
-require('entry-watcher')({
+var EntryWatcher = require('entry-watcher');
+new EntryWatcher({
     logfile: '/path/to/logs/app.log',
     sport: 'ncaa-mens-basketball',
     year: '2015',
@@ -23,10 +24,16 @@ require('entry-watcher')({
         'access_token': '',
         'access_token_secre': ''
     }
-}, function (err, entry) {
-    // Entry is the full entry passsed back
-    // plus the `bracket` value
-});
+    onSave: function (entry) {
+        // Entry is the full entry passsed back
+        // plus the `bracket` value
+    },
+    onError: function () {
+        // Can be used to plug in to when there are entries
+        // that dont meet the validation such as not having a valid
+        // bracket or being outside the time limit
+    }
+}).start();
 ```
 
 ## What is it doing?
