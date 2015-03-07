@@ -8,6 +8,7 @@ var EntryWatchcer = function (options) {
     options || (options = {});
 
     this.options = _.defaults(options, {
+        logger: null,
         logfile: path.resolve(__dirname, 'logs', 'app.log'),
         sport: 'ncaa-mens-basketball',
         year: new Date().getFullYear(),
@@ -27,7 +28,7 @@ var EntryWatchcer = function (options) {
         throw new Error(options.type + ' is not a valid entry type');
     }
 
-    this.logger = bucker.createLogger({
+    this.logger = options.logger || bucker.createLogger({
         console: {
             color: true
         },
@@ -38,6 +39,7 @@ var EntryWatchcer = function (options) {
             accessFormat: ':time :level :method :status :url'
         }
     });
+    delete options.logger;
 };
 
 
