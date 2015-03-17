@@ -12,7 +12,7 @@ describe('Locks', function () {
         var locks = new Locks({year: year, sport: sport});
 
         assert.equal(locks.isOpen(), false);
-        assert.equal(locks.moment('calendar'), '03/21/2014');
+        assert.equal(locks.moment('calendar'), '03/21/2013');
 
         done();
     });
