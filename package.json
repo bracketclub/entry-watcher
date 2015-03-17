@@ -39,6 +39,6 @@
     "url": "http://github.com/tweetyourbracket/tweet.git"
   },
   "scripts": {
-    "test": "./node_modules/.bin/mocha -c -u bdd -R spec --timeout 5000 test/*.js"
+    "test": "./node_modules/.bin/mocha -c -u bdd -R spec --timeout 15000 test/*.js"
   }
 }
