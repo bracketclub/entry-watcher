@@ -23,7 +23,8 @@ describe('Watcher', function () {
         assert.throws(function () {
             new Watcher({
                 logger: nullLogger,
-                type: 'tweet'
+                type: 'tweet',
+                _forceOpen: true
             }).start();
         }, /config must provide consumer_key/);
     });
