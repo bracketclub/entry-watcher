@@ -1,7 +1,7 @@
 {
   "name": "@lukekarrys/entry-watcher",
   "description": "Entry watcher for tweetyourbracket.com",
-  "version": "4.0.0",
+  "version": "4.0.1",
   "author": {
     "name": "Luke Karrys",
     "email": "luke@lukekarrys.com",
