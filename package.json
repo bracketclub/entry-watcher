@@ -1,7 +1,7 @@
 {
   "name": "entry-watcher",
   "description": "Entry watcher for tweetyourbracket.com",
-  "version": "3.0.2",
+  "version": "4.0.0",
   "author": {
     "name": "Luke Karrys",
     "email": "luke@lukekarrys.com",
@@ -11,18 +11,23 @@
     "url": "https://github.com/tweetyourbracket/tweet/issues"
   },
   "dependencies": {
-    "async": "^0.9.0",
-    "bracket-data": "^2.2.6",
+    "async": "^1.5.2",
+    "bracket-data": "^2.4.0",
     "bracket-finder": "^2.0.4",
-    "bucker": "^1.0.11",
-    "lodash": "^3.5.0",
-    "moment": "^2.9.0",
-    "twit": "^1.1.20"
+    "bucker": "^1.1.1",
+    "lodash": "^3.10.1",
+    "moment": "^2.11.0",
+    "twit": "^2.1.1"
   },
   "devDependencies": {
-    "jshint": "^2.6.3",
-    "mocha": "^2.2.1",
-    "precommit-hook": "^1.0.7"
+    "@lukekarrys/eslint-config": "^1.0.38",
+    "babel-eslint": "^5.0.0-beta6",
+    "eslint": "^1.10.3",
+    "eslint-plugin-classes": "^0.1.1",
+    "eslint-plugin-react": "^3.14.0",
+    "jshint": "^2.9.1-rc2",
+    "mocha": "^2.3.4",
+    "precommit-hook": "^3.0.0"
   },
   "homepage": "http://github.com/tweetyourbracket/tweet",
   "keywords": [
@@ -32,12 +37,19 @@
   ],
   "license": "MIT",
   "main": "index.js",
+  "pre-commit": [
+    "lint",
+    "validate",
+    "test"
+  ],
   "private": true,
   "repository": {
     "type": "git",
     "url": "http://github.com/tweetyourbracket/tweet.git"
   },
   "scripts": {
-    "test": "./node_modules/.bin/mocha -c -u bdd -R spec --timeout 15000 test/*.js"
+    "lint": "eslint .",
+    "test": "mocha -c -u bdd -R spec --timeout 15000 test/*.js",
+    "validate": "npm ls"
   }
 }
