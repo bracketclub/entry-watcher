@@ -1,5 +1,5 @@
 {
-  "name": "entry-watcher",
+  "name": "@lukekarrys/entry-watcher",
   "description": "Entry watcher for tweetyourbracket.com",
   "version": "4.0.0",
   "author": {
@@ -25,7 +25,6 @@
     "eslint": "^1.10.3",
     "eslint-plugin-classes": "^0.1.1",
     "eslint-plugin-react": "^3.14.0",
-    "jshint": "^2.9.1-rc2",
     "mocha": "^2.3.4",
     "precommit-hook": "^3.0.0"
   },
@@ -42,7 +41,6 @@
     "validate",
     "test"
   ],
-  "private": true,
   "repository": {
     "type": "git",
     "url": "http://github.com/tweetyourbracket/tweet.git"
