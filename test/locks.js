@@ -5,7 +5,7 @@ const moment = require('moment');
 const Locks = require('../lib/locks');
 
 const year = '2013';
-const sport = 'ncaa-mens-basketball';
+const sport = 'ncaam';
 const ONE_DAY = 1000 * 60 * 60 * 24;
 
 describe('Locks', () => {

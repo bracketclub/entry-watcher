@@ -4,7 +4,7 @@ const assert = require('assert');
 const _ = require('lodash');
 
 const year = '2013';
-const sport = 'ncaa-mens-basketball';
+const sport = 'ncaam';
 const config = {domain: 'tweetyourbracket.com', tags: ['tybrkt']};
 
 const entryConfig = (opts) => _.extend(opts || {}, config, {year, sport});

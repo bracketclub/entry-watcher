@@ -11,7 +11,7 @@ Entry watcher for tweetyourbracket.com
 const EntryWatcher = require('entry-watcher');
 new EntryWatcher({
   logfile: '/path/to/logs/app.log',
-  sport: 'ncaa-mens-basketball',
+  sport: 'ncaam',
   year: '2015',
   domain: 'tweetyourbracket.com',
   tags: ['tybrkt'],

@@ -12,7 +12,7 @@ class EntryWatchcer {
     this.options = _.defaults(options, {
       logger: null,
       logfile: path.resolve(__dirname, 'logs', 'app.log'),
-      sport: 'ncaa-mens-basketball',
+      sport: 'ncaam',
       year: new Date().getFullYear(),
       domain: 'tweetyourbracket.com',
       tags: ['tybrkt'],
