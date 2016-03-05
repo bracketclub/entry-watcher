@@ -12,20 +12,20 @@
   },
   "dependencies": {
     "async": "^1.5.2",
-    "bracket-data": "^4.0.0",
+    "bracket-data": "^4.0.7",
     "bracket-finder": "^3.0.0",
     "bucker": "^1.1.1",
-    "lodash": "^3.10.1",
-    "moment": "^2.11.0",
-    "twit": "^2.1.1"
+    "lodash": "^4.6.1",
+    "moment": "^2.11.2",
+    "twit": "^2.2.2"
   },
   "devDependencies": {
-    "@lukekarrys/eslint-config": "^1.0.38",
-    "babel-eslint": "^5.0.0-beta6",
-    "eslint": "^1.10.3",
+    "@lukekarrys/eslint-config": "^2.0.11",
+    "babel-eslint": "^6.0.0-beta.1",
+    "eslint": "^2.3.0",
     "eslint-plugin-classes": "^0.1.1",
-    "eslint-plugin-react": "^3.14.0",
-    "mocha": "^2.3.4",
+    "eslint-plugin-react": "^4.1.0",
+    "mocha": "^2.4.5",
     "precommit-hook": "^3.0.0"
   },
   "homepage": "http://github.com/tweetyourbracket/tweet",
