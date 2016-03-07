@@ -16,17 +16,17 @@
     "bracket-finder": "^3.0.0",
     "bucker": "^1.1.1",
     "lodash": "^4.6.1",
-    "moment": "^2.11.2",
-    "twit": "^2.2.2"
+    "moment": "^2.12.0",
+    "twit": "^2.2.3"
   },
   "devDependencies": {
-    "@lukekarrys/eslint-config": "^2.0.11",
-    "babel-eslint": "^6.0.0-beta.1",
+    "@lukekarrys/eslint-config": "^2.0.12",
+    "babel-eslint": "^6.0.0-beta.2",
     "eslint": "^2.3.0",
     "eslint-plugin-classes": "^0.1.1",
-    "eslint-plugin-react": "^4.1.0",
+    "eslint-plugin-react": "^4.2.0",
     "mocha": "^2.4.5",
-    "precommit-hook": "^3.0.0"
+    "git-validate": "^2.1.4"
   },
   "homepage": "http://github.com/tweetyourbracket/tweet",
   "keywords": [
