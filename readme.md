@@ -10,7 +10,7 @@ Entry watcher for tweetyourbracket.com
 ```js
 const EntryWatcher = require('entry-watcher');
 new EntryWatcher({
-  logfile: '/path/to/logs/app.log',
+  logger: null,
   sport: 'ncaam',
   year: '2015',
   domain: 'tweetyourbracket.com',

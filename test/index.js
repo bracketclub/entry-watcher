@@ -1,14 +1,12 @@
 'use strict';
 
 const assert = require('assert');
-const nullLogger = require('bucker').createNullLogger();
 const Watcher = require('../index');
 
 describe('Watcher', () => {
   it('Should throw an error if a watcher has twitter type and no auth', () => {
     assert.doesNotThrow(() => {
       new Watcher({
-        logger: nullLogger,
         type: 'tweet',
         auth: {
           consumer_key: '1',
@@ -23,7 +21,6 @@ describe('Watcher', () => {
   it('Should throw an error if a watcher has twitter type and no auth', () => {
     assert.throws(() => {
       new Watcher({
-        logger: nullLogger,
         type: 'tweet',
         _forceOpen: true
       }).start();
@@ -33,7 +30,6 @@ describe('Watcher', () => {
   it('Should throw an error if a watcher has no type', () => {
     assert.throws(() => {
       new Watcher({
-        logger: nullLogger,
         type: 'x'
       }).start();
     }, /x is not a valid entry type/);

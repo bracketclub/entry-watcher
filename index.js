@@ -1,6 +1,5 @@
 'use strict';
 
-const path = require('path');
 const bucker = require('bucker');
 const _ = require('lodash');
 const watchers = require('./lib/watchers');
@@ -10,8 +9,7 @@ class EntryWatchcer {
     if (!options) options = {};
 
     this.options = _.defaults(options, {
-      logger: null,
-      logfile: path.resolve(__dirname, 'logs', 'app.log'),
+      logger: bucker.createNullLogger(),
       sport: 'ncaam',
       year: new Date().getFullYear(),
       domain: 'tweetyourbracket.com',
@@ -29,26 +27,10 @@ class EntryWatchcer {
     if (!watchers[options.type]) {
       throw new Error(`${options.type} is not a valid entry type`);
     }
-
-    this.logger = options.logger || bucker.createLogger({
-      console: {
-        color: true
-      },
-      app: {
-        filename: options.logfile,
-        format: ':level :time :data',
-        timestamp: 'HH:mm:ss',
-        accessFormat: ':time :level :method :status :url'
-      }
-    });
-
-    delete options.logger;
   }
 
   start() {
-    watchers[this.options.type](_.extend({
-      logger: this.logger
-    }, this.options));
+    watchers[this.options.type](_.extend({}, this.options));
   }
 }
 
