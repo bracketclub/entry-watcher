@@ -2,15 +2,18 @@
 
 const assert = require('assert');
 const _ = require('lodash');
+const moment = require('moment');
+
+const Entry = require('../lib/entry');
+const Locks = require('../lib/locks');
 
 const year = '2013';
 const sport = 'ncaam';
 const config = {domain: 'tweetyourbracket.com', tags: ['tybrkt']};
 
 const entryConfig = (opts) => _.extend(opts || {}, config, {year, sport});
-const future = require('moment')().add(10, 'days').utc().format();
-const Entry = require('../lib/entry');
-const Locks = require('../lib/locks');
+const future = moment().add(10, 'days').utc().format();
+
 const locks = (obj) => new Locks(_.extend(obj || {}, {sport, year}));
 
 describe('Entry watcher [twitter]', () => {
