@@ -11,23 +11,18 @@
     "url": "https://github.com/tweetyourbracket/tweet/issues"
   },
   "dependencies": {
-    "async": "^1.5.2",
-    "bracket-data": "^4.0.7",
+    "async": "^2.0.1",
+    "bracket-data": "^4.2.3",
     "bracket-finder": "^3.0.0",
     "bucker": "^1.1.1",
-    "lodash": "^4.6.1",
-    "moment": "^2.12.0",
-    "twit": "^2.2.3"
+    "lodash": "^4.14.2",
+    "moment": "^2.14.1",
+    "twit": "^2.2.4"
   },
   "devDependencies": {
-    "@lukekarrys/eslint-config": "^2.1.2",
-    "babel-eslint": "^6.1.2",
-    "eslint": "^3.2.2",
-    "eslint-plugin-classes": "^0.1.1",
-    "eslint-plugin-import": "^1.12.0",
-    "eslint-plugin-react": "^6.0.0",
     "git-validate": "^2.1.4",
-    "mocha": "^2.4.5"
+    "mocha": "^3.0.2",
+    "standard": "^8.0.0-beta.3"
   },
   "homepage": "http://github.com/tweetyourbracket/tweet",
   "keywords": [
@@ -47,7 +42,7 @@
     "url": "http://github.com/tweetyourbracket/tweet.git"
   },
   "scripts": {
-    "lint": "eslint .",
+    "lint": "standard",
     "test": "mocha -c -u bdd -R spec --timeout 15000 test/*.js",
     "validate": "npm ls"
   }
