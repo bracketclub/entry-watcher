@@ -10,8 +10,6 @@ class EntryWatchcer {
 
     this.options = _.defaults(options, {
       logger: bucker.createNullLogger(),
-      sport: 'ncaam',
-      year: new Date().getFullYear(),
       domain: 'tweetyourbracket.com',
       tags: ['tybrkt'],
       type: null,

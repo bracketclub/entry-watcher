@@ -9,6 +9,8 @@ describe('Watcher', () => {
   it('Should throw an error if a watcher has twitter type and no auth', () => {
     assert.doesNotThrow(() => {
       new Watcher({
+        sport: 'ncaam',
+        year: '2016',
         type: 'tweet',
         auth: {
           consumer_key: '1',
@@ -20,9 +22,18 @@ describe('Watcher', () => {
     })
   })
 
+  it('Should throw an error if a watcher has no sport year', () => {
+    assert.throws(() => {
+      new Watcher({
+      }).start()
+    }, /Needs sport and year/)
+  })
+
   it('Should throw an error if a watcher has twitter type and no auth', () => {
     assert.throws(() => {
       new Watcher({
+        sport: 'ncaam',
+        year: '2016',
         type: 'tweet',
         _forceOpen: true
       }).start()
@@ -32,6 +43,8 @@ describe('Watcher', () => {
   it('Should throw an error if a watcher has no type', () => {
     assert.throws(() => {
       new Watcher({
+        sport: 'ncaam',
+        year: '2016',
         type: 'x'
       }).start()
     }, /x is not a valid entry type/)
