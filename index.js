@@ -8,15 +8,17 @@ class EntryWatchcer {
   constructor (options) {
     if (!options) options = {}
 
-    this.options = _.defaults(options, {
+    options = _.defaults(options, {
       logger: bucker.createNullLogger(),
-      domain: 'tweetyourbracket.com',
-      tags: ['tybrkt'],
       type: null,
       auth: {},
       onSave () {},
       onError () {}
     })
+
+    if (!options.tags || !options.tags.length || !options.domain) {
+      throw new Error(`Tags and domain are required. Got ${options.tags} ${options.domain}`)
+    }
 
     if (!options.sport || !options.year) {
       throw new Error(`Needs sport and year. Got ${options.sport} ${options.year}`)
@@ -25,6 +27,8 @@ class EntryWatchcer {
     if (!watchers[options.type]) {
       throw new Error(`${options.type} is not a valid entry type`)
     }
+
+    this.options = options
   }
 
   start () {

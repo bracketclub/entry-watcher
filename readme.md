@@ -1,9 +1,9 @@
 entry-watcher
 ==============
 
-[![Build Status](https://travis-ci.org/tweetyourbracket/entry-watcher.png?branch=master)](https://travis-ci.org/tweetyourbracket/entry-watcher)
+[![Build Status](https://travis-ci.org/bracketclub/entry-watcher.png?branch=master)](https://travis-ci.org/bracketclub/entry-watcher)
 
-Entry watcher for tweetyourbracket.com
+Entry watcher for [bracket.club](https://bracket.club).
 
 ## Usage
 
@@ -13,8 +13,8 @@ new EntryWatcher({
   logger: null,
   sport: 'ncaam',
   year: '2015',
-  domain: 'tweetyourbracket.com',
-  tags: ['tybrkt'],
+  domain: 'bracket.club',
+  tags: ['bracketclub'],
   type: 'tweet',
   auth: {
     // Passed to twitter streaming listener

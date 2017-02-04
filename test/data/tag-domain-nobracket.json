@@ -2,7 +2,7 @@
   "created_at": "Wed Feb 26 20:43:07 +0000 2014",
   "id": 438776262480232450,
   "id_str": "438776262480232450",
-  "text": "18 days until brackets open!We are excited and testing the new site. Sign up to be notified when it’s ready: http://t.co/UXj61QfOlc\n\n#tybrkt",
+  "text": "18 days until brackets open!We are excited and testing the new site. Sign up to be notified when it’s ready: http://t.co/UXj61QfOlc\n\n#somehashtaggggg",
   "source": "<a href=\"http://tapbots.com/software/tweetbot/mac\" rel=\"nofollow\">Tweetbot for Mac</a>",
   "truncated": false,
   "in_reply_to_status_id": null,
@@ -23,8 +23,8 @@
         "urls": [
           {
             "url": "http://t.co/ISprxtPnBs",
-            "expanded_url": "http://tweetyourbracket.com",
-            "display_url": "tweetyourbracket.com",
+            "expanded_url": "http://lookforthisdomain.com",
+            "display_url": "lookforthisdomain.com",
             "indices": [
               0,
               22
@@ -77,7 +77,7 @@
   "entities": {
     "hashtags": [
       {
-        "text": "tybrkt",
+        "text": "somehashtaggggg",
         "indices": [
           133,
           140
@@ -88,8 +88,8 @@
     "urls": [
       {
         "url": "http://t.co/UXj61QfOlc",
-        "expanded_url": "http://tweetyourbracket.com/",
-        "display_url": "tweetyourbracket.com",
+        "expanded_url": "http://lookforthisdomain.com/",
+        "display_url": "lookforthisdomain.com",
         "indices": [
           109,
           131

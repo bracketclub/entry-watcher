@@ -12,9 +12,9 @@ const Locks = require('../lib/locks')
 
 const year = '2013'
 const sport = 'ncaam'
-const config = {domain: 'tweetyourbracket.com', tags: ['tybrkt']}
+const config = {domain: 'lookforthisdomain.com', tags: ['somehashtaggggg']}
 
-const entryConfig = (opts) => _.extend(opts || {}, config, {year, sport})
+const entryConfig = (opts) => _.extend({}, config, opts, {year, sport})
 const future = moment().add(10, 'days').utc().format()
 
 const locks = (obj) => new Locks(_.extend(obj || {}, {sport, year}))
@@ -56,6 +56,7 @@ describe('Entry watcher [twitter]', () => {
 
   it('Should find a valid bracket from a tweet with a short domain+bracket and tags', (done) => {
     new Entry(entryConfig({
+      domain: 'tweetyourbracket.com',
       locks: locks({locks: future}),
       tweet: require('./data/tag-shortdomain-bracket'),
       sport,

@@ -2,7 +2,7 @@
   "created_at": "Wed Mar 20 02:26:17 +0000 2013",
   "id": 314201194597871616,
   "id_str": "314201194597871616",
-  "text": "L'ville vs IU. What can I say, I love chalk. http://t.co/imfF2NZyYF #tybrkt via @tweetthebracket",
+  "text": "L'ville vs IU. What can I say, I love chalk. http://t.co/imfF2NZyYF #somehashtaggggg via @tweetthebracket",
   "source": "<a href=\"http://twitter.com/tweetbutton\" rel=\"nofollow\">Tweet Button</a>",
   "truncated": false,
   "in_reply_to_status_id": null,
@@ -78,7 +78,7 @@
   "entities": {
     "hashtags": [
       {
-        "text": "tybrkt",
+        "text": "somehashtaggggg",
         "indices": [
           68,
           75
@@ -89,8 +89,8 @@
     "urls": [
       {
         "url": "http://t.co/imfF2NZyYF",
-        "expanded_url": "http://tweetyourbracket.com/#MW191241137211237131W1854631021532522S18541131021532533E195463721432121FFMWEMW",
-        "display_url": "tweetyourbracket.com/#MW19124113721…",
+        "expanded_url": "http://lookforthisdomain.com/#MW191241137211237131W1854631021532522S18541131021532533E195463721432121FFMWEMW",
+        "display_url": "lookforthisdomain.com/#MW19124113721…",
         "indices": [
           45,
           67

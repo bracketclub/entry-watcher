@@ -1,6 +1,6 @@
 {
   "name": "@lukekarrys/entry-watcher",
-  "description": "Entry watcher for tweetyourbracket.com",
+  "description": "Entry watcher for bracket.club",
   "version": "5.0.5",
   "author": {
     "name": "Luke Karrys",
@@ -8,7 +8,7 @@
     "url": "http://lukekarrys.com"
   },
   "bugs": {
-    "url": "https://github.com/tweetyourbracket/tweet/issues"
+    "url": "https://github.com/bracketclub/entry-watcher/issues"
   },
   "dependencies": {
     "async": "^2.0.1",
@@ -25,11 +25,12 @@
     "mocha": "^3.0.2",
     "standard": "^8.0.0-beta.3"
   },
-  "homepage": "http://github.com/tweetyourbracket/tweet",
+  "homepage": "https://github.com/bracketclub/entry-watcher",
   "keywords": [
     "bracket",
     "ncaa",
-    "tweetyourbracket"
+    "tweetyourbracket",
+    "bracketclub"
   ],
   "license": "MIT",
   "main": "index.js",
@@ -40,7 +41,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "http://github.com/tweetyourbracket/tweet.git"
+    "url": "https://github.com/bracketclub/entry-watcher.git"
   },
   "scripts": {
     "lint": "standard",
