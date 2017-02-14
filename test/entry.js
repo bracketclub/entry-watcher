@@ -19,6 +19,11 @@ const future = moment().add(10, 'days').utc().format()
 
 const locks = (obj) => new Locks(_.extend(obj || {}, {sport, year}))
 
+const noError = (done) => (err) => {
+  assert.equal(err, null)
+  done()
+}
+
 describe('Entry watcher [twitter]', () => {
   it('Should find a valid bracket from a tweet with a domain+bracket and bracket', (done) => {
     new Entry(entryConfig({
@@ -26,7 +31,8 @@ describe('Entry watcher [twitter]', () => {
       onSave: (result) => {
         assert.equal(result.bracket, 'MW191241137211237131W1854631021532522S18541131021532533E195463721432121FFMWEMW')
         done()
-      }
+      },
+      onError: noError(done)
     }))
   })
 
@@ -56,7 +62,7 @@ describe('Entry watcher [twitter]', () => {
 
   it('Should find a valid bracket from a tweet with a short domain+bracket and tags', (done) => {
     new Entry(entryConfig({
-      domain: 'tweetyourbracket.com',
+      domain: 'bracket.club',
       locks: locks({locks: future}),
       tweet: require('./data/tag-shortdomain-bracket'),
       sport,
@@ -64,7 +70,8 @@ describe('Entry watcher [twitter]', () => {
       onSave: (result) => {
         assert.equal(result.bracket, 'MW18121311372112117177W168124631028123101233S181241131028411104114E1954614721462466FFWSS')
         done()
-      }
+      },
+      onError: noError(done)
     }))
   })
 
