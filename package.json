@@ -1,7 +1,7 @@
 {
   "name": "@lukekarrys/entry-watcher",
   "description": "Entry watcher for bracket.club",
-  "version": "5.0.5",
+  "version": "5.0.6",
   "author": {
     "name": "Luke Karrys",
     "email": "luke@lukekarrys.com",
