@@ -11,19 +11,19 @@
     "url": "https://github.com/bracketclub/entry-watcher/issues"
   },
   "dependencies": {
-    "async": "^2.0.1",
-    "bracket-data": "^4.4.1",
-    "bracket-finder": "^3.0.0",
+    "async": "^2.3.0",
+    "bracket-data": "^4.5.15",
+    "bracket-finder": "^3.0.1",
     "bucker": "^1.1.1",
-    "lodash": "^4.14.2",
-    "moment": "^2.14.1",
-    "twit": "^2.2.4"
+    "lodash": "^4.17.4",
+    "moment": "^2.18.1",
+    "twit": "^2.2.5"
   },
   "devDependencies": {
-    "git-validate": "^2.1.4",
+    "git-validate": "^2.2.2",
     "greenkeeper-postpublish": "^1.0.1",
-    "mocha": "^3.0.2",
-    "standard": "^9.0.0"
+    "mocha": "^3.2.0",
+    "standard": "^10.0.1"
   },
   "homepage": "https://github.com/bracketclub/entry-watcher",
   "keywords": [
