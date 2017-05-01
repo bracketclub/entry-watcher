@@ -1,11 +1,11 @@
 entry-watcher
 ==============
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/bracketclub/entry-watcher.svg)](https://greenkeeper.io/)
+Entry watcher for [bracket.club](https://bracket.club).
 
 [![Build Status](https://travis-ci.org/bracketclub/entry-watcher.png?branch=master)](https://travis-ci.org/bracketclub/entry-watcher)
+[![Greenkeeper badge](https://badges.greenkeeper.io/bracketclub/entry-watcher.svg)](https://greenkeeper.io/)
 
-Entry watcher for [bracket.club](https://bracket.club).
 
 ## Usage
 
