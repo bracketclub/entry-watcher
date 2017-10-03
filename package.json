@@ -22,7 +22,7 @@
   "devDependencies": {
     "git-validate": "^2.2.2",
     "greenkeeper-postpublish": "^1.0.1",
-    "mocha": "^3.2.0",
+    "mocha": "^4.0.0",
     "standard": "^10.0.1"
   },
   "homepage": "https://github.com/bracketclub/entry-watcher",
