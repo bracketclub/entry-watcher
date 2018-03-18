@@ -54,7 +54,7 @@ describe('Entry watcher [twitter]', () => {
       tweet: require('./data/tag-domain-nobracket'),
       onError: (err) => {
         assert.equal(true, err instanceof Error)
-        assert.equal(err.message, 'tweet does not contain a bracket: 438776262480232450')
+        assert.equal(err.message, 'tweet does not contain a bracket: TweetTheBracket/438776262480232450')
         done()
       }
     }))
@@ -82,7 +82,7 @@ describe('Entry watcher [twitter]', () => {
       tweet: require('./data/notag-domain-nobracket'),
       onError: (err) => {
         assert.equal(true, err instanceof Error)
-        assert.equal(err.message, 'tweet does not contain a bracket: 427233416044490752')
+        assert.equal(err.message, 'tweet does not contain a bracket: TweetTheBracket/427233416044490752')
         done()
       }
     }))
@@ -95,7 +95,7 @@ describe('Entry watcher [twitter]', () => {
       tweet: require('./data/notag-nodomain-nobracket'),
       onError: (err) => {
         assert.equal(true, err instanceof Error)
-        assert.equal(err.message, 'tweet does not contain a bracket: 438756526988087296')
+        assert.equal(err.message, 'tweet does not contain a bracket: dart_lang/438756526988087296')
         done()
       }
     }))
