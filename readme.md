@@ -36,6 +36,14 @@ new EntryWatcher({
 }).start();
 ```
 
+## Checking a Specific Tweet
+
+```js
+new EntryWatcher({
+  // All the same options as above
+}).find(TWEET_ID)
+```
+
 ## What is it doing?
 
 It is setting up a Twitter listener using [`twit`](https://github.com/ttezel/twit) and when a tweet is found, it is checking whether it contains a valid bracket. If it does, it will call the `onSave` handler.
