@@ -3,9 +3,7 @@ entry-watcher
 
 Entry watcher for [bracket.club](https://bracket.club).
 
-[![Build Status](https://travis-ci.org/bracketclub/entry-watcher.png?branch=master)](https://travis-ci.org/bracketclub/entry-watcher)
-[![Greenkeeper badge](https://badges.greenkeeper.io/bracketclub/entry-watcher.svg)](https://greenkeeper.io/)
-
+**This is now part of the [data repo](https://github.com/bracketclub/data).**
 
 ## Usage
 
@@ -49,10 +47,6 @@ new EntryWatcher({
 ## What is it doing?
 
 It is setting up a Twitter listener using [`twit`](https://github.com/ttezel/twit) and when a tweet is found, it is checking whether it contains a valid bracket. If it does, it will call the `onSave` handler.
-
-## Is it on npm?
-
-Yeah, now that there are publically scoped modules it's at `npm install @lukekarrys/entry-watcher`.
 
 ### LICENSE
 
